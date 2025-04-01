@@ -1,0 +1,30 @@
+<div class="container mt-5">
+    <h2>Ajouter un Client</h2>
+    <form (submit)="saveCustomer()">
+      <div class="mb-3">
+        <label>Prénom</label>
+        <input type="text" class="form-control" [(ngModel)]="customer.firstName" name="firstName" required>
+      </div>
+      <div class="mb-3">
+        <label>Nom</label>
+        <input type="text" class="form-control" [(ngModel)]="customer.lastName" name="lastName" required>
+      </div>
+      <div class="mb-3">
+        <label>Date d'inscription</label>
+        <input type="date" class="form-control" [(ngModel)]="customer.registrationDate" name="registrationDate" required>
+      </div>
+      <div class="mb-3">
+        <label>Numéro de téléphone</label>
+        <input type="text" class="form-control" [(ngModel)]="customer.phoneNumber" name="phoneNumber" required>
+      </div>
+      <div class="mb-3">
+        <label>Abonnement Actif</label>
+        <select class="form-control" [(ngModel)]="customer.activeSubscription" name="activeSubscription">
+          <option [value]="true">Oui</option>
+          <option [value]="false">Non</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-success">Enregistrer</button>
+    </form>
+  </div>
+  

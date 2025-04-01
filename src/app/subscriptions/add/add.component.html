@@ -1,0 +1,59 @@
+<div class="container mt-5">
+    <h2>Ajouter un Abonnement</h2>
+  
+    <!-- Message d'erreur -->
+    <div *ngIf="errorMessage" class="alert alert-danger">
+      {{ errorMessage }}
+    </div>
+  
+    <form (submit)="saveSubscription()">
+      <!-- Sélection du client -->
+      <div class="mb-3">
+        <label>Client</label>
+        <select class="form-control" [(ngModel)]="subscription.customerId" name="customerId" required>
+          <option value="">Sélectionnez un client</option>
+          <option *ngFor="let customer of customers" [value]="customer.id">
+            {{ customer.firstName }} {{ customer.lastName }}
+          </option>
+        </select>
+      </div>
+  
+      <!-- Sélection de l'offre -->
+      <div class="mb-3">
+        <label>Offre</label>
+        <select class="form-control" [(ngModel)]="subscription.packId" name="packId" required>
+          <option value="">Sélectionnez une offre</option>
+          <option *ngFor="let pack of packs" [value]="pack.id">
+            {{ pack.offerName }} ({{ pack.durationMonths }} mois - {{ pack.monthlyPrice }} €)
+          </option>
+        </select>
+      </div>
+  
+      <!-- Date de début -->
+      <div class="mb-3">
+        <label>Date de début</label>
+        <input type="date" class="form-control" [(ngModel)]="subscription.startDate" name="startDate" required>
+      </div>
+  
+      <!-- Date de fin -->
+      <div class="mb-3">
+        <label>Date de fin</label>
+        <input type="date" class="form-control" [(ngModel)]="subscription.endDate" name="endDate" required>
+      </div>
+  
+      <!-- Statut -->
+      <div class="mb-3">
+        <label>Statut</label>
+        <select class="form-control" [(ngModel)]="subscription.status" name="status">
+          <option value="active">Actif</option>
+          <option value="inactive">Inactif</option>
+        </select>
+      </div>
+  
+      <!-- Bouton de soumission -->
+      <button type="submit" class="btn btn-success" [disabled]="isLoading">
+        <span *ngIf="!isLoading">Enregistrer</span>
+        <span *ngIf="isLoading">Enregistrement en cours...</span>
+      </button>
+    </form>
+  </div>

@@ -1,0 +1,28 @@
+<div class="container mt-5">
+    <h2>Liste des Offres</h2>
+    <a routerLink="/packs/add" class="btn btn-primary">Ajouter une offre</a>
+    <table class="table table-striped mt-3">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nom de l'offre</th>
+          <th>Durée (mois)</th>
+          <th>Prix Mensuel</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let pack of packs">
+          <td>{{ pack.id }}</td>
+          <td>{{ pack.offerName }}</td>
+          <td>{{ pack.durationMonths }}</td>
+          <td>{{ pack.monthlyPrice }} €</td>
+          <td>
+            <a [routerLink]="['/packs/edit', pack.id]" class="btn btn-warning btn-sm  m-2">Modifier</a>
+            <button class="btn btn-danger btn-sm  m-2" (click)="deletePack(pack.id)">Supprimer</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

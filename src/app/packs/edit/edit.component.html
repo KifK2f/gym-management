@@ -1,0 +1,19 @@
+<div class="container mt-5">
+    <h2>Modifier une Offre</h2>
+    <form (submit)="updatePack()">
+      <div class="mb-3">
+        <label>Nom de l'offre</label>
+        <input type="text" class="form-control" [(ngModel)]="pack.offerName" name="offerName">
+      </div>
+      <div class="mb-3">
+        <label>Durée (mois)</label>
+        <input type="number" class="form-control" [(ngModel)]="pack.durationMonths" name="durationMonths">
+      </div>
+      <div class="mb-3">
+        <label>Prix Mensuel (€)</label>
+        <input type="number" class="form-control" [(ngModel)]="pack.monthlyPrice" name="monthlyPrice">
+      </div>
+      <button type="submit" class="btn btn-success">Enregistrer</button>
+    </form>
+  </div>
+  

@@ -1,0 +1,17 @@
+<div class="container mt-5">
+    <h2>Connexion</h2>
+    <form (submit)="login()">
+      <div class="mb-3">
+        <label>Email</label>
+        <input type="email" class="form-control" [(ngModel)]="user.email" name="email">
+      </div>
+      <div class="mb-3">
+        <label>Mot de passe</label>
+        <input type="password" class="form-control" [(ngModel)]="user.password" name="password">
+      </div>
+     <div class= "d-flex justify-content-between">
+        <button (click)="goToRegister()" class="btn btn-outline-primary">S'inscrire</button>
+        <button type="submit" class="btn btn-primary">Se connecter</button></div>
+    </form>
+  </div>
+  

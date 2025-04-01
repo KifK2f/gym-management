@@ -1,0 +1,30 @@
+<div class="container mt-5">
+    <h2>Liste des Abonnements</h2>
+    <a routerLink="/subscriptions/add" class="btn btn-primary">Ajouter un abonnement</a>
+    <table class="table table-striped mt-3">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Client</th>
+          <th>Offre</th>
+          <th>Date Début</th>
+          <th>Statut</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let sub of subscriptions">
+          <td>{{ sub.id }}</td>
+          <td>{{ sub.customer?.firstName }} {{ sub.customer?.lastName }}</td>
+          <td>{{ sub.pack?.offerName }}</td>
+          <td>{{ sub.startDate }}</td>
+          <td>{{ sub.status }}</td>
+          <td>
+            <a [routerLink]="['/subscriptions/edit', sub.id]" class="btn btn-warning btn-sm  m-2">Modifier</a>
+            <button class="btn btn-danger btn-sm  m-2" (click)="deleteSubscription(sub.id)">Supprimer</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
